@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block title %}attendance page{% endblock title %}
+{% block style %}
+<style>
+   
+
+  .container {
+    font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #ffffff;
+      padding: 30px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      
+      max-width: 800px; /* Adjust width as needed */
+  }
+
+  h1 {
+      color: #007bff;
+      margin-bottom: 20px;
+  }
+
+  table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+  }
+
+  table th, table td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+  }
+
+  table th {
+      background-color: #f2f2f2;
+  }
+
+  input[type="submit"] {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  }
+
+  input[type="submit"]:hover {
+      background-color: #0056b3;
+  }
+
+  input[type="submit"]:active {
+      background-color: #004080;
+  }
+</style>
+{% endblock style %}
+
+{% block body %}
+<div class="container">
+<form method="post">
+    {% csrf_token %}
+    <h1>Submit Attendance for Year {{ year_id }}</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Student ID</th>
+          <th>Student Name</th>
+          <th>Attendance in DSA</th>
+          <th>Attendance in OS</th>
+          <th>Submit</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for student, form in forms %}
+        <tr>
+          <td>{{ student.student_id }}</td>
+          <td>{{ student.name }}</td>
+          <td>{{ form.attendance_dsa }}</td>
+          <td>{{ form.attendance_os }}</td>
+          <td><input type="submit" value="Submit" name="submit_{{ student.student_id }}"></td>
+         
+
+          {% comment %} <td><input type="submit" value="Submit" name="submit_{{ student.student_id }}"></td> {% endcomment %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </form>
+</div>
+{% endblock body %}
+

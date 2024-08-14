@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}payment page{% endblock title %}
+{% block style %}
+button {
+    
+    align-items: center;
+    margin-top:200px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 30%;
+    margin-left:500px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+{% endblock style %}
+{% block body %}
+
+<button id="rzp-button1">Pay with Razorpay</button>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+
+
+<script>
+    var options = {
+        "key": "rzp_test_t72y26XVhSJXq9", // Enter the Key ID generated from the Dashboard
+        "amount": "50000*100", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+        "currency": "INR",
+        "name": "Ecomm",
+        "description": "Test Transaction",
+        "image": "https://example.com/your_logo",
+        "order_id": "{{order_id}}", //This is a sample Order ID. Pass the id obtained in the response of Step 1
+        "handler": function (response){
+            alert(response.razorpay_payment_id);
+            alert(response.razorpay_order_id);
+            alert(response.razorpay_signature)
+        },
+        "theme": {
+            "color": "#3399cc"
+        }
+    };
+    var rzp1 = new Razorpay(options);
+    rzp1.on('payment.failed', function (response){
+            alert(response.error.code);
+            alert(response.error.description);
+            alert(response.error.source);
+            alert(response.error.step);
+            alert(response.error.reason);
+            alert(response.error.metadata.order_id);
+            alert(response.error.metadata.payment_id);
+    });
+    document.getElementById('rzp-button1').onclick = function(e){
+        rzp1.open();
+        e.preventDefault();
+    }
+    </script>
+{% endblock body %}

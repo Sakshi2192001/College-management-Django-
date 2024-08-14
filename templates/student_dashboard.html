@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}student dashboard{% endblock title %}
+{% block style %}
+/* Button Styles */
+
+b {
+  display: block;
+  margin: 18px auto; /* add auto margin to center the button */
+  padding: 8px 6px;
+  background-color: #3397b7c2;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 30%; /* adjust the width to fit the button text */
+  text-align: center; /* center the text inside the button */
+}
+
+/* Add hover effect for the button */
+b:hover {
+  background-color: #337ab7; /* change the background color on hover */
+}
+
+/* Add active effect for the button */
+b:active {
+  background-color: #23527c; /* change the background color on active */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* add a subtle shadow on active */
+}
+
+/* Center the buttons */
+.button-center {
+  text-align: center; /* center the buttons horizontally */
+}
+{% endblock style %}
+
+{% block body %}
+<p>Welcome Student {{name}} </p>
+<p>
+<b><a href="student_marks">View Marks</a></b></p>
+<p>
+<b><a href="student_attendance">View Attendance</a></b></p>
+<p>
+<b><a href="subject_details">Subject Details</a></b></p>
+{% endblock body %}

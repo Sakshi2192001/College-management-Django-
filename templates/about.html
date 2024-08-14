@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% block title %}about us{% endblock title %}
+{% block style %}
+/* styles.css */
+
+/* Global Styles */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2em;
+}
+
+/* Hero Section */
+
+.hero {
+  background-image: url("static/collage.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 360px;
+  color:#2243B6;
+}
+
+/* About Us Section */
+
+.about-us {
+  background-color: #f7f7f7;
+  padding: 2em;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-us h2 {
+  margin-top: 0;
+}
+
+/* Campus Life Section */
+
+.campus-life {
+  background-color: #f7f7f7;
+  padding: 2em;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.campus-life h2 {
+  margin-top: 0;
+}
+
+/* Footer */
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+  clear: both;
+}
+
+footer p {
+  margin-bottom: 0;
+}
+
+/* Responsive Design */
+
+@media only screen and (max-width: 768px) {
+  .hero {
+    height: 50vh;
+  }
+  .container {
+    padding: 1em;
+  }
+  .about-us, .campus-life {
+    margin-bottom: 10px;
+  }
+  img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .hero {
+    height: 30vh;
+  }
+  .container {
+    padding: 0.5em;
+  }
+  .about-us, .campus-life {
+    margin-bottom: 5px;
+  }
+  img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 5px;
+  }
+}
+{% endblock style %}
+{% block body %}
+<!-- index.html -->
+
+<main>
+    <section class="hero">
+      <h1>Welcome to SS College</h1>
+    </section>
+    <section class="about-us">
+      <div class="container">
+        <h2>About Us</h2>
+        <p>Our college was founded in 1950, with a mission to provide high-quality education to students from all walks of life. Today, we are a thriving community of over 5,000 students, faculty, and staff, with a strong focus on academic excellence, innovation, and social responsibility.</p>
+        <img src="static/download.jpg" alt="Students in Class">
+        <p>We offer a wide range of undergraduate and graduate programs, in fields such as business, engineering, arts, and sciences. Our faculty are renowned experts in their fields, and our students are known for their academic achievements, creativity, and community engagement.</p>
+        <img src="static/faculty.jpg" alt="Faculty Member">
+      </div>
+    </section>
+    <section class="campus-life">
+      <div class="container">
+        <h2>Campus Life</h2>
+        <p>Our campus is a vibrant and inclusive community, with a wide range of extracurricular activities, clubs, and organizations. From sports and recreation, to arts and culture, there's something for everyone at our college.</p>
+        <img src="static/sport.jpg" alt="Students Playing Sports">
+        <p>We also have a strong commitment to sustainability, with a focus on reducing our environmental footprint and promoting eco-friendly practices throughout our campus.</p>
+        <img src="static/envi.jpg" alt="Sustainability Initiatives">
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2024 SS College</p>
+  </footer>
+{% endblock body %}

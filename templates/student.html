@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block title %}Student Form{% endblock title %}
+
+
+        {% block style %}
+       
+          body{
+            background:url('static/smb.jpeg') no-repeat center center/cover
+          }
+        /* Add some basic styling to the form */
+        form {
+          width: 50%; /* Set the width of the form */
+          margin: 40px auto; /* Center the form */
+          padding: 20px; /* Add some padding */
+          border: 1px solid #ccc; /* Add a border */
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+        }
+      
+        /* Style the labels and inputs */
+        label {
+          display: block; /* Make the labels block elements */
+          margin-bottom: 10px; /* Add some space between labels */
+        }
+      
+        input[type="text"], input[type="email"], input[type="tel"], input[type="number"] {
+          width: 100%; /* Make the inputs full width */
+          height: 40px; /* Set the height of the inputs */
+          margin-bottom: 20px; /* Add some space between inputs */
+          padding: 10px; /* Add some padding */
+          border: 1px solid #ccc; /* Add a border */
+        }
+      
+        input[type="submit"] {
+          background-color: #4CAF50; /* Set the background color of the submit button */
+          color: #fff; /* Set the text color of the submit button */
+          padding: 10px 20px; /* Add some padding */
+          border: none; /* Remove the border */
+          border-radius: 5px; /* Add a subtle border radius */
+          cursor: pointer; /* Change the cursor to a pointer */
+        }
+      
+        input[type="submit"]:hover {
+          background-color: #3e8e41; /* Change the background color on hover */
+        }
+
+    
+        {% endblock style %}
+
+        {% block body %} 
+      
+      <form method="POST" action="/student">
+        {% csrf_token %}
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" placeholder="Enter your name"><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" placeholder="Enter your email"><br>
+        <label for="phone_number">Phone Number:</label><br>
+        <input type="tel" id="phone_number" name="phone_number" placeholder="Enter your phone number"><br>
+        <label for="address">Address:</label><br>
+        <input type="text" id="address" name="address" placeholder="Enter your address"><br>
+        <label for="aadhar_number">Aadhar Number:</label><br>
+        <input type="text" id="aadhar_number" name="aadhar_number" placeholder="Enter your aadhar number"><br>
+        <label for="year">Year:</label><br>
+        <input type="number" id="year" name="year" placeholder="Enter your year"><br>
+        <label for="student_id">Student ID:</label><br>
+        <input type="text" id="student_id" name="student_id" placeholder="Enter student id"><br>
+        <label for="password">Password:</label>
+        <input type="text" id="password" name="password" placeholder="Enter your password"><br><br>
+        <input type="submit" value="Submit">
+      </form>
+
+{% endblock body %}

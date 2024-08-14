@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block title %}student marks{% endblock title %}
+{% block style %}
+<style>
+    /* Container and text styles */
+    .attendance-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
+    
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+    
+    .subject {
+        background-color: #e0f7fa;
+        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+    
+    .subject:hover {
+        background-color: #b2ebf2;
+        color: #00796b;
+    }
+    
+    .attendance {
+        color: #00796b;
+        transition: color 0.3s ease-in-out;
+    }
+
+    
+    
+    /* Hover effect for attendance value */
+    .subject:hover .attendance {
+        color: #004d40;
+    }
+
+    
+    .status-low{
+        color:rgb(255, 99, 71);
+    }
+    .status-high{
+        color:rgb(60, 179, 113);
+    }
+</style>
+{% endblock style %}
+
+{% block body %}
+<div class="marks-container">
+    <p>Welcome Student</p>
+<table>
+    <tr>
+      <th>Subject</th>
+      <th>Marks</th>
+      <th>Status</th>
+    </tr>
+    <tr>
+      <td>DSA</td>
+      <td>{{ m_dsa }}</td>
+      <td>
+        {% if dsa_status == 'Fail' %}
+          <span style="color: red">{{ dsa_status }}</span>
+        {% else %}
+          <span style="color: green">{{ dsa_status }}</span>
+        {% endif %}
+      </td>
+    </tr>
+    <tr>
+      <td>OS</td>
+      <td>{{ m_os }}</td>
+      <td>
+        {% if os_status == 'Fail' %}
+          <span style="color: red">{{ os_status }}</span>
+        {% else %}
+          <span style="color: green">{{ os_status }}</span>
+        {% endif %}
+      </td>
+    </tr>
+  </table>
+</div>
+{% endblock body %}

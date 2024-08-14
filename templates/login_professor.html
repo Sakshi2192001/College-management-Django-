@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% block title %}Login_Professor{% endblock title %}
+
+
+{% block style %}
+        
+          body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            background: url('static/smb.jpeg') no-repeat center center/cover;
+           
+        }
+              
+              
+              .container {
+                width: 50%;
+                margin: 40px auto;
+                background-color: #fff;
+                padding: 20px;
+                border: 1px solid #ddd;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                
+              }
+              
+              .login-block {
+                width: 60%;
+                float: left;
+                padding: 20px;
+              }
+              
+              .signup-block {
+                width: 40%;
+                float: left;
+                padding: 20px;
+                background-color: #f7f7f7;
+                border-left: 1px solid #ddd;
+              }
+              
+              h2 {
+                margin-top: 0;
+              }
+              
+              label {
+                display: block;
+                margin-bottom: 10px;
+              }
+              
+              input[type="text"], input[type="password"] {
+                width: 100%;
+                height: 40px;
+                margin-bottom: 20px;
+                padding: 10px;
+                border: 1px solid #ccc;
+              }
+              
+              input[type="submit"] {
+                background-color: #4CAF50;
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+              }
+              
+              input[type="submit"]:hover {
+                background-color: #3e8e41;
+              }
+              
+              .forgot-password {
+                color: #337ab7;
+                text-decoration: none;
+              }
+              
+              .forgot-password:hover {
+                color: #23527c;
+              }
+              
+              .signup-link {
+                color: #337ab7;
+                text-decoration: none;
+              }
+              
+              .signup-link:hover {
+                color: #23527c;
+              }
+              
+              .clearfix {
+                clear: both;
+              }
+        
+        {% endblock style %}
+
+ {% block body %}      
+ <body>
+  
+  <div class="container">
+   
+      <h2>Login As Professor</h2>
+      <form method="POST" action="/login_professor">
+        {% csrf_token %}
+        <label for="email-phone">Email or Phone Number:</label>
+        <input type="text" id="email-phone" name="email-phone"><br><br>
+        <label for="id">Password:</label>
+        <input type="password" id="id" name="id"><br><br>
+        <input type="submit" value="Login">
+      </form>
+      <a href="forgot_password" class="forgot-password">Forgot Password?</a>
+    
+    
+      <h3>Don't have an account?</h3>
+      <a href="professor" class="signup-link">Sign Up</a>
+    
+  </div>
+</body>
+   {% endblock body %}

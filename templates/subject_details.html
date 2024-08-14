@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}subject details{% endblock title %}
+{% block style %}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    
+}
+table, th, td {
+    border: 1px solid black;
+    
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+    
+}
+td{
+    color:blue;
+}
+th{
+    color:white;
+    background-color:black;
+}
+{% endblock style %}
+
+{% block body %}
+
+<h1>Professor for year {{ year}}</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Subjects</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for professor in Professor_info %}
+            <tr>
+                <td>{{ professor.name }}</td>
+                <td>{{ professor.email }}</td>
+                <td>{{ professor.subjects }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock body %}

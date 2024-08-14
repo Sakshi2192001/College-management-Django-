@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Professor Dashboard{% endblock title %}
+{% block style %}
+/* Button Styles */
+
+
+b {
+
+  display: block;
+  margin: 18px auto; /* add auto margin to center the button */
+  padding: 8px 6px;
+  background-color: #3397b7c2;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 16%; /* keep the width to maintain the button size */
+  text-align: center; /* add this to center the text inside the button */
+}
+
+/* Add this to center the buttons horizontally */
+.button-container {
+  text-align: center; /* center the buttons horizontally */
+}
+
+/* Add hover effect for the button container */
+.button-container:hover {
+  background-color:blue; /* light gray background on hover */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* add a subtle shadow on hover */
+}
+
+
+{% endblock style %}
+
+
+{% block body %}
+<body>
+<p>Welcome Professor {{name}} </p>
+<p>You have assigned thses years:{%for year in years%} {{ year }},
+    {%endfor%}
+</p>
+<b><a href="marks1">Evaluate Marks</a></b>
+<b><a href="attendance1">Evaluate Attendance</a></b>
+<b><a href="notice1">Send Notice</a></b>
+</body>
+{% endblock body %}

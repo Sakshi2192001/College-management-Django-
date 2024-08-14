@@ -1,0 +1,310 @@
+{% extends 'base.html' %}
+{% block title %}index{% endblock title %}
+{% block style %}
+/* styles.css */
+body, html {
+    font-family: 'Arial, sans-serif';
+    margin:0px;
+}
+
+.hero-section {
+    background: url('static/back.webp') no-repeat center center/cover;
+    height: 100vh;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-content {
+    background: rgb(11 10 10 / 91%);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.hero-section h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+.hero-section p {
+    font-size: 1.5em;
+    margin: 20px 0;
+}
+
+.cta-button {
+    background-color: #ffcc00;
+    color: #333;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #ff9900;
+}
+
+.about-us-section {
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.about-us-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+    margin: 20px;
+    color: #555;
+    text-align: left;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 300px;
+    margin: 20px;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.love_counter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #F5F5F5;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .counter-Txt {
+    width: calc(25% - 20px); /* 25% width with 20px gap */
+    margin: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .counter-Txt img {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 10px;
+  }
+  
+  .counter-value {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .love_count {
+    font-size: 36px;
+    font-weight: bold;
+    color: #666;
+  }
+  
+  .counter-Txt p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 1200px) {
+   .counter-Txt {
+      width: calc(33.33% - 20px); /* 33.33% width with 20px gap */
+    }
+  }
+  
+  @media (max-width: 992px) {
+   .counter-Txt {
+      width: calc(50% - 20px); /* 50% width with 20px gap */
+    }
+  }
+  
+  @media (max-width: 768px) {
+   .counter-Txt {
+      width: 100%; /* full width on small screens */
+    }
+  }
+/* styles.css */
+/* Footer Section */
+.footer {
+    background-color: #1f1f1f; /* Dark background color */
+    color: #ffffff; /* Light text color */
+    padding: 40px 20px;
+    text-align: left;
+    margin-top: 40px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    margin: 20px;
+}
+
+.footer-column h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #ffcc00; /* Bright heading color */
+}
+
+.footer-column p,
+.footer-column ul {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #ffffff; /* Light link color */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #ffcc00; /* Bright hover color */
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #bbbbbb; /* Light gray color */
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+{% endblock style %}
+
+{% block body %}
+<header class="hero-section">
+    <div class="hero-content">
+        <h1>Welcome to SS College</h1>
+        <p>Equipping students for a more promising future</p>
+        <a href="#about-us" class="cta-button">Learn More</a>
+    </div>
+</header>
+
+<!-- About Us Section -->
+<section id="about-us" class="about-us-section">
+    <div class="container">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>The University will seek not merely to turn out men as engineers, scientists, doctors, merchants, theologians but also as men of high character, probity and honour, whose conduct through life will show they bear the hall-mark of a great University.</p>
+                <p>A teaching university would but half perform its function if it does not seek to develop the heart-power of its scholars with the same solicitude with which it develops their brain-power. Hence it is that the proposed university has placed formation of character in youth as one of its principal objects.</p>
+            </div>
+            <div class="about-image">
+                <img src="static/coll.webp" alt="About SS College">
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="w-100 ml-0 mt-3" style="background-color:#F5F5F5; min-width:101%">
+    <div class="love_counter row justify-content-center w-100" id="counter">
+    <div class="col-sm-3 counter-Txt rounded"><img alt="" src="static/under.png" style="filter: grayscale(65%);"><span class="counter-value" data-count="10"> </span>
+    <div class="love_count">6495</div>
+    <p><span style="font-size:12px; ">Undergraduates</span></p></div>
+    <div class="col-sm-3 counter-Txt"><img alt="" src="static/post.png" style="filter: grayscale(65%);"><span class="counter-value" data-count="25"> </span>
+    <div class="love_count">913</div>
+    <p><span style="font-size:12px;">Postgraduates</span></p></div>
+    <div class="col-sm-3 counter-Txt margin-bot-35"><img alt="" src="static/female.png" style="filter: grayscale(65%);"><span class="counter-value" data-count="25"></span>
+    <div class="love_count">1840</div>
+    <p><span style="font-size:12px;"> Female Students</span></p></div>
+    </div>
+    <div class="row love_counter mb-3 justify-content-center w-100" id="counter">
+    <div class="col-sm-3 counter-Txt rounded"><img alt="" src="static/prof.png" style="filter: grayscale(65%);" width="64px;"><span class="counter-value" data-count="10"> </span>
+    <div class="love_count">348</div>
+    <p><span style="font-size:14px;">Faculty</span></p></div>
+    <div class="col-sm-3 counter-Txt margin-bot-35"><img alt="" src="static/project.png" style="filter: grayscale(65%);"><span class="counter-value" data-count="150"></span>
+    <div class="love_count">1439</div>
+    <p><span style="font-size:14px; "> Consultancy Projects</span> <span style="font-size:12px; "> (FY 2022-23)</span></p></div>
+    </div>
+    </div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-column">
+            <h3>Contact Information</h3>
+            <p>SS College</p>
+            <p>1234 Education Lane</p>
+            <p>Townsville, TS 56789</p>
+            <p>Email: info@sscollege.edu</p>
+            <p>Phone: (123) 456-7890</p>
+        </div>
+        <div class="footer-column">
+            <h3>Important Links</h3>
+            <ul>
+                <li><a href="#privacy-policy">Privacy Policy</a></li>
+                <li><a href="#terms-of-service">Terms of Service</a></li>
+                <li><a href="#admissions">Admissions</a></li>
+                <li><a href="contact">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Opening Hours</h3>
+            <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
+            <p>Saturday: 9:00 AM - 1:00 PM</p>
+            <p>Sunday: Closed</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 SS College. All Rights Reserved.</p>
+    </div>
+</footer>
+
+{% endblock body %}

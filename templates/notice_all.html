@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %}notice all{% endblock title %}
+{% block style %}
+<style>
+    /* Form Styles */
+
+form {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  transition: border-color 0.3s ease;
+}
+
+textarea:focus {
+  border-color: #337ab7;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+button[type="submit"] {
+  background-color: #337ab7;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #23527c;
+}
+
+button[type="submit"]:active {
+  background-color: #337ab7;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+
+</style>
+{% endblock style %}
+
+{% block body %}
+<form method="post" action="notice_all">
+    {% csrf_token %}
+    
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" required></textarea>
+    <br>
+    <button type="submit">Send to All Students</button>
+</form>
+{% endblock body %}
